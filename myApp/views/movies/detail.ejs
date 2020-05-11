@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1><%= movie.title %></h1>
+
+        <div>
+            <div>
+                Rating: <%= movie.rating %>
+            </div>
+
+            <div>
+                Awards: <%= movie.awards %>
+            </div>
+
+            <div>
+                <a href="/genres/<%= movie.genre.id %>">Genre: <%= movie.genre.name %></a>
+            </div>
+
+            <div>
+                <% if (movie.actors) { %>
+                    <h4>Acotrs:</h4>
+                    <ul>
+                        <% movie.actors.map(actor => { %>
+                            <li>
+                                <a href="/actors/<%= actor.id %> "><%= actor.first_name %> <%= actor.last_name %></a>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% } %>
+            </div>
+
+            <form action="delete/<%= movie.id %>?_method=DELETE" method="POST">
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+
+            <form action="edit/<%= movie.id %>" method="GET">
+                <button type="submit">
+                    Edit
+                </button>
+            </form>
+        </div>
+    </body>
+
+</html>

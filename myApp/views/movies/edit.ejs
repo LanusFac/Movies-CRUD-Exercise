@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <form action="<%= movie.id %>?_method=PUT" method="POST">
+            <label for="">
+                Title:
+            </label for="">
+            <input name="title" type="text" value="<%= movie.title %>">
+            <br>
+            <label for="">
+                Rating:
+            </label for="">
+            <input name="rating" type="number" step="0.01" min="0" max="10" value="<%= movie.rating %>">
+            <br>
+            <label for="">
+                Awards:
+            </label for="">
+            <input name="awards" type="number" step="1" min="0" value="<%= movie.awards %>">
+            <br>
+            <label for="">
+                Genre:
+            </div>
+            
+            <select name="genreList">
+                <% genres.map(genre => { %> 
+                    <% if(movie.genre_id == genre.id) { %>
+                        <option value=" <%= genre.id %> " selected>
+                            <%= genre.name %>
+                        </option>
+                    <% } else { %>
+                        <option value="<%= genre.id %> ">
+                            <%= genre.name %>
+                        </option>
+                    <% } %> 
+                <% }) %> 
+            </select>
+
+            <button type="submit">
+                Guardar
+            </button>
+        </form>
+        
+    </body>
+</html>

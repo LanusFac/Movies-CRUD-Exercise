@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="/genres/edit/save/<%= genre.id %>?_method=PUT" method="POST">
+            <input type="text" name="genreName" id="" value="<%= genre.name %> ">
+            <button type="submit">
+                Save
+            </button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="create" method="POST" class="createForm">
+            <label for="">
+                Nombre de la pelicula:
+            </label>
+                <input type="text" name="title"><br>
+
+            <label for="">
+                Rating:
+            </label>
+                <input type="number" name="rating" step="0.01" min="0" max="10"><br>
+
+            <label for="">
+                Awards:
+            </label>
+                <input type="number" name="awards" min="0"><br>
+
+            <label for="">
+                Genre:
+            </label>
+            <select name="genre" id="" class="genreSelect">
+                <% genres.map(genre => { %> 
+                    <option value="<%= genre.id %>">
+                        <%= genre.name %> 
+                    </option>
+                <% }) %> 
+            </select>
+            <br>
+
+            <button type="submit" class="upload">
+                Enviar
+            </button>
+        </form>
+    </body>
+</html>

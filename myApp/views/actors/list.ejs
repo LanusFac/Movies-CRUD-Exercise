@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Actors list:</h1>
+        <ul>
+            <% actors.map(actor => { %>
+                <li>
+                    <a href="<%= actor.id %> ">
+                        <h3><%= actor.first_name %> <%= actor.last_name %>  </h3>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+         
+    </body>
+</html>

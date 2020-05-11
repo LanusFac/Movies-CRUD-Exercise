@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>List of movies</h1>
+        
+        <ul>
+            <% movies.map(movie => { %> 
+                <li>
+                    <h3><%= movie.title %></h3>
+    
+                    <form action="delete/<%= movie.id %>?_method=DELETE" method="POST">
+                        <button type="submit">
+                            Delete movie
+                        </button>
+                    </form>
+    
+                    <form action="<%= movie.id %> " method="GET">
+                        <button type="submit">
+                            Details
+                        </button>
+                    </form>
+    
+                    <form action="edit/<%= movie.id %>?_methot=PUT" method="POST">
+                        <button type="submit">
+                            Edit
+                        </button>
+                    </form>
+                </li>
+            <% }) %> 
+        </ul>
+
+
+    </body>
+</html>
+

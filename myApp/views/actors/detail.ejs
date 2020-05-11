@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+
+    </head>
+    <body>
+        <h1 class="title"><%= actor.first_name %> <%= actor.last_name %> </h1>
+        <div>
+            <% if (actor.favorite_movie) { %>
+                <label for="">Favorite movie: </label>
+                <a href="/movies/<%= actor.favorite_movie.id %> "><%= actor.favorite_movie.title %> </a>
+            <% } %>
+        </div>
+        <div>
+            <h4>Movies:</h4>
+            <ul>
+                <% actor.movies.map(movie => { %>
+                    <li>
+                        <a href="/movies/<%= movie.id %> ">
+                            <%= movie.title %> 
+                        </a>
+                    </li> 
+                <% }) %> 
+            </ul>
+
+            <form action="edit/<%= actor.id %>" method="GET">
+                <button type="submit">
+                    Edit
+                </button>
+            </form>
+
+            <form action="/actors/delete/<%= actor.id %>?_method=DELETE" method="POST">
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+        </div>
+    </body>
+</html>
